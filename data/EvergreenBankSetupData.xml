@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-facade-xml type="seed">
+    <!--Localizations-->
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.StatusItem" fieldName="description" pkValue="OrderOpen" locale="en" localized="Open" />
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.StatusItem" fieldName="description" pkValue="OrderRequested" locale="en" localized="Requested" />
+
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="RessOwn" locale="en" localized="Own without debt" />
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="RessPrivateTenant" locale="en" localized="Rent" />
+
+    <!-- Overrides Natural Person Certification in moqui-close -->
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="MkAgrNaturalPersonCertification" locale="en" localized="Authorized Signer Certification" />
+    <moqui.basic.LocalizedEntityField entityName="moqui.basic.Enumeration" fieldName="description" pkValue="PsstTemplateAgrNaturalPersonCert" locale="en" localized="Template Authorized Signer Certification Agreement" />
+</entity-facade-xml>
