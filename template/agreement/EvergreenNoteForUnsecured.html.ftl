@@ -310,19 +310,23 @@
                 <b>Amount paid to others on my behalf:</b>
                 <br>
                 ${orderItem.unitAmount?string.currency!"-"} to
-                ${dealerContactInfo.postalAddress.toName}
+                <#if dealerContactInfo?? && dealerContactInfo.postalAddress??>
+                  ${dealerContactInfo.postalAddress.toName!"-"}
+                  <#else>
+                  -
+                </#if>
               </td>
               <td class="currency"><b>${orderItem.unitAmount?string.currency!"-"}</b></td>
             </tr>
             <tr>
               <td><b>Note Principal:</b></td>
               <td class="currency">
-                <b>$${(orderItem.unitAmount+(downPayment.downPaymentAmount)!0)?string(currencyFormat)!"-"}</b>
+                <b>${(orderItem.unitAmount+(downPayment.downPaymentAmount)!0)?string.currency!"-"}</b>
               </td>
             </tr>
             <tr>
               <td><b>Prepaid Finance Charges:</b></td>
-              <td class="currency"><b>$${loanFee!"0"}.00</b></td>
+              <td class="currency"><b><#if loanFee??>${loanFee?number?string.currency!"-"}<#else>-</#if></b></td>
             </tr>
             <tr>
               <td><b>Amount Financed:</b></td>
@@ -334,7 +338,7 @@
     </table>
     <hr>
     <div class="spaced">
-      <b>Principal Amount: $${orderItem.unitAmount?string(currencyFormat)!"-"}</b>
+      <b>Principal Amount: ${orderItem.unitAmount?string.currency!"-"}</b>
       <b>Interest Rate: ${interestRate*100!"-"}%</b>
       <b>Date of Note: ${.now?string["MMMM dd, yyyy"]!"-"}</b>
     </div>
