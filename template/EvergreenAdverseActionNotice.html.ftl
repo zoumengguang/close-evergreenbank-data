@@ -1,3 +1,6 @@
+<#assign seq = ['Insufficient income for amount of credit requested', 'Length of employment', 'Temporary or irregular employment', 'Insufficient number of credit references provided', 'Property taxes not paid as agreed', 'Poor credit performance with us', 'Temporary residence', 'Length of residence', 'Residence not within our current lending territory', 'Unable to verify all income', 'Unable to verify employment', 'Unable to verify property is primary residence of all applicants', 'Unable to verify all applicants have an ownership interest in property to be improved', 'All applicants not in title to property or lack ownership interest', 'Reverse mortgage lien exists on property', '3 rd mortgage position not acceptable','Value or type of collateral insufficient','Property type to be improved is ineligible','Terms requested not offered','Amount requested ineligible for unsecured credit','Ineligible for additional credit with lender','Mortgage or credit insurance denied','Incomplete application/requested information not provided', 'Other']>
+<#assign showBasedDecision = false>
+
 <div>
     <style>
         .header {
@@ -102,7 +105,7 @@
         </#list>
         <p class="parts-field"><b>Part II - Disclosure of Use of Information Obtained From an
                 Outside Source</b></p>
-        <p><b>X<#--TODO 'X' marked on certain disclosure based on denial --></b> Our credit decision
+        <p><b>X</b> Our credit decision
             was based in whole or in part on information obtained in a report from the consumer
             reporting agency listed below. You have a right under the Fair Credit Reporting Act to
             know the information contained in your credit file at the consumer reporting agency. The
@@ -146,16 +149,21 @@
                     <#items as creditScoreFactor>
                         <li>${creditScoreFactor}</li>
                     </#items>
+                     <#if seq?seq_contains(adverseActionReason)>
+                        <#assign showBasedDecision = true>
+                    </#if>
                 </ul>
             </#list>
         </div>
         <br>
-        <p><b>X<#--TODO 'X' marked on certain disclosure based on denial --></b> Our credit decision
-            was based in whole or in part on information obtained from an affiliate or from an
-            outside source other than a consumer reporting agency. Under the Fair Credit Reporting
-            Act, you have the right to make a written request, no later than 60 days after you
-            receive this notice, for disclosure of the nature of this information.</p>
-        <br>
+        <#if showBasedDecision>
+            <p><b>X</b> Our credit decision
+                was based in whole or in part on information obtained from an affiliate or from an
+                outside source other than a consumer reporting agency. Under the Fair Credit Reporting
+                Act, you have the right to make a written request, no later than 60 days after you
+                receive this notice, for disclosure of the nature of this information.</p>
+            <br>
+        </#if>
         <p><i>If you have any questions regarding this notice, you should contact:</i></p>
         <p>Creditor's name: Evergreen Bank Group</p>
         <p>Creditor's address: 1515 W. 22ND Street, Suite 100W, Oak Brook, IL 60523</p>
