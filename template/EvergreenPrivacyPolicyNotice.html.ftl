@@ -84,13 +84,13 @@
         border: 2px solid black;
         font-size: 3em;
       }
-      ul{
+      ul.list {
         list-style-type: square;
       }
-      li {
+      ul.list li {
         font-size: 36px;
       }
-      li span {
+      ul.list li span {
         font-size: 16px;
         vertical-align: middle;
       }
@@ -138,7 +138,7 @@
                 The types of personal information we collect and share depend on the product or service you
                 have with us. This information can include:
               </p>
-              <ul>
+              <ul class="list">
                 <li><span>Social Security number and income</span></li>
                 <li><span>account balances and payment history</span></li>
                 <li><span>credit history and credit scores</span></li>
