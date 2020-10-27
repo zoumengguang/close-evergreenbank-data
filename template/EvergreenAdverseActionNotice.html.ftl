@@ -67,15 +67,16 @@
         }
     </style>
     <div>
+    <div class="header">
+        <div>
+            <p><b>Contractor: ${storeMerchantName!"-"}</b></p>
+        </div>
         <div>
             <p>Date Denied: ${adverseActionDate}</p>
             <p>Application #: ${orderId!"-"}</p>
         </div>
-        <br />
-
-        <p><b>Contractor: ${storeMerchantName!"-"}</b></p> <br />
-
-        <p><b>Applicants: </b></p>
+    </div>
+    <p><b>Applicants: </b></p>
         <div>
             ${(customerFullName)!"-"} <br />
             ${(customerAddress1)!"-"} ${(customerAddress2)!" "} <br />
@@ -100,6 +101,9 @@
             <ol>
                 <#items as adverseActionReason>
                     <li>${adverseActionReason}</li>
+                    <#if seq?seq_contains(adverseActionReason)>
+                        <#assign showBasedDecision = true>
+                    </#if>
                 </#items>
             </ol>
         </#list>
@@ -149,9 +153,6 @@
                     <#items as creditScoreFactor>
                         <li>${creditScoreFactor}</li>
                     </#items>
-                     <#if seq?seq_contains(adverseActionReason)>
-                        <#assign showBasedDecision = true>
-                    </#if>
                 </ul>
             </#list>
         </div>
