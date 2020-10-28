@@ -100,7 +100,9 @@
         <#list adverseActionReasons>
             <ol>
                 <#items as adverseActionReason>
-                    <li>${adverseActionReason}</li>
+                    <#if adverseActionReason != "Other">
+                        <li>${adverseActionReason}</li>
+                    </#if>
                     <#if seq?seq_contains(adverseActionReason)>
                         <#assign showBasedDecision = true>
                     </#if>
@@ -109,7 +111,7 @@
         </#list>
         <p class="parts-field"><b>Part II - Disclosure of Use of Information Obtained From an
                 Outside Source</b></p>
-        <p><b>X</b> Our credit decision
+        <p> Our credit decision
             was based in whole or in part on information obtained in a report from the consumer
             reporting agency listed below. You have a right under the Fair Credit Reporting Act to
             know the information contained in your credit file at the consumer reporting agency. The
@@ -158,7 +160,7 @@
         </div>
         <br>
         <#if showBasedDecision>
-            <p><b>X</b> Our credit decision
+            <p> Our credit decision
                 was based in whole or in part on information obtained from an affiliate or from an
                 outside source other than a consumer reporting agency. Under the Fair Credit Reporting
                 Act, you have the right to make a written request, no later than 60 days after you
