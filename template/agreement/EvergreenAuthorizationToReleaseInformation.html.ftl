@@ -2,17 +2,15 @@
 <#if coApplicant??>
   <#assign coAppPerson = coApplicant.person!"-">
 </#if>
-<#assign primaryPerson = primaryApplicant.person!"-">
-<#if coApplicant??>
-  <#assign coAppPerson = coApplicant.person!"-">
-</#if>
 
 <div>
     <style>
         .center {
             text-align: center;
         }
-
+        .blueText {
+            color: #1155cc;
+        }
         .row {
             display: flex;
             flex-direction: row;
@@ -58,22 +56,13 @@
         <ol class="list" type="1">
 
             <li><b>I/We authorize you to provide information Evergreen Bank Group (“Bank”) requests
-                    regarding my/our loan application.</b> I/We authorize the Bank to verify
-                information
-                contained in
-                my/our loan application and to release documents related to my/our loan request,
-                both
-                before the
-                loan closes and after. This includes, but is not limited to, employment and income
-                data;
-                bank
-                accounts, retirement accounts and similar account balances; detailed credit
-                histories;
-                copies of tax
-                returns or other income sources; and any payoff requests. A copy of this
-                authorization
-                or electronic
-                signatures may be accepted as the original.
+                regarding my/our loan application.</b> I/We authorize the Bank to verify information contained in
+                my/our loan application and to release documents related to my/our loan request, both before the
+                loan closes and after. This includes, but is not limited to, employment and income data; bank
+                accounts, retirement accounts and similar account balances; detailed credit histories; copies of tax
+                returns or other income sources; and any payoff requests. <span class="blueText">I/We also authorize my/our insurance
+                company to add Bank as a loss payee if Bank should request it.</span> A copy of this authorization or
+                electronic signatures may be accepted as the original.
             </li>
             <li><b>I/We authorize the Bank to disburse loan proceeds directly to my/our selected
                     contractor.</b> If
