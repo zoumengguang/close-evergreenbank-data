@@ -3,11 +3,6 @@
 
 <div>
     <style>
-        .header {
-            display: flex;
-            justify-content: space-between;
-        }
-
         .box {
             border: 1px solid black;
         }
@@ -59,33 +54,44 @@
             margin: 20px 0;
         }
 
+        .tg-oky {
+            padding-left: 43px;
+        }
         .tg-pky {
+            padding-left: 58px;
+        }
+        .tg-mky {
             padding-left: 30px;
-            border-color: inherit;
-            text-align: left;
-            vertical-align: top
+        }
+        .tg-bky {
+            padding-left: 30px;
         }
     </style>
+ 
+ <div>  
     <div>
-    <div class="header">
         <div>
             <p><b>Contractor: ${storeMerchantName!"-"}</b></p>
         </div>
+        <br/>
         <div>
             <p>Date Denied: ${adverseActionDate}</p>
             <p>Application #: ${orderId!"-"}</p>
         </div>
     </div>
-    <p><b>Applicants: </b></p>
+    <br/>
+    <div>
+        <p><b>Applicants: </b></p>
         <div>
             ${(customerFullName)!"-"} <br />
             ${(customerAddress1)!"-"} ${(customerAddress2)!" "} <br />
             ${(customerCity)!"-"} ${(customerState)!"-"} ${(customerPostalCode)!"-"}
         </div>
+    </div>
         <br />
 
-        <p class="center" style="margin: 20px 0">Notice of Action Taken and Statement of Reasons</p>
-        <div class="box" style="padding: 15px 7px">
+        <p class="center" style="margin: 20px 0;">Notice of Action Taken and Statement of Reasons</p>
+        <div class="box" style="padding: 15px 7px;">
             <p>Description of Transaction or Requested Credit: <b>Home Improvement Loan
                     Application</b></p>
             <p style="margin: 5px 0 0 50px;">Description of Action Taken: <b
@@ -122,22 +128,18 @@
             receive is inaccurate or incomplete, you have the right to dispute the matter with the
             reporting agency.</p>
 
-        <table class="tg">
-            <tbody>
-                <tr>
-                    <td class="tg-pky">Name:</td>
-                    <td class="tg-pky">Experian</td>
-                </tr>
-                <tr>
-                    <td class="tg-pky">Address:</td>
-                    <td class="tg-pky">702 Experian Parkway, PO Box 2002, Allen, TX 75013</td>
-                </tr>
-                <tr>
-                    <td class="tg-pky">Telephone:</td>
-                    <td class="tg-pky">(888) 397-3742</td>
-                </tr>
-            </tbody>
-        </table>
+        
+            <div class="tg">
+                <div>
+                    <div class="tg-bky">Name:<span class="tg-pky">Experian</span></div>
+                </div>
+                <div>
+                    <div class="tg-bky">Address:<span class="tg-oky">702 Experian Parkway, PO Box 2002, Allen, TX 75013</span></div>
+                </div>
+                <div>
+                    <div class="tg-bky">Telephone:<span class="tg-mky">(888) 397-3742</span></div>
+                </div>
+            </div>
 
         <p>We also obtained your credit score from this consumer reporting agency and used it in
             making our credit decision. Your credit score is a number that reflects the information
