@@ -58,9 +58,6 @@
        border: 1px solid black;
        background-color: black;
       }
-      .hidden{
-        color: black;
-      }
       .border{
         border: 1px solid black;
       }
@@ -127,7 +124,7 @@
           <#if isSecured>
             <table class="table">
               <tbody>
-                <div class="tableHeader hidden">Key Factor</div>
+                <div class="tableHeader">Key Factor</div>
                 <tr>
                   <td>Key <u>factors</u> that adversely affected your credit score</td>
                   <td>
@@ -173,11 +170,7 @@
       <br/>
       <table class="table">
         <tbody>
-            <#if showCreditPulled??> 
-              <div class="tableHeader hidden">Checking Your Credit Report</div>
-            <#else>
-              <div class="tableHeader">Checking Your Credit Report</div>
-            </#if>
+            <div class="tableHeader">Checking Your Credit Report</div>
             <td>What if there are mistakes in your credit report?</td>
             <td>
               You have a right to dispute any inaccurate information in your credit report. If you find mistakes on your credit report, contact the consumer reporting agency. <br/>
