@@ -184,23 +184,28 @@
       display: flex;
     }
 
-    .signature-fields {
-      display: inline-block;
-      width: 53%;
-      border-top: 3px solid black;
-      position: relative;
-      margin: 0 13px;
-      padding-top: 3px;
-      flex: 3;
+    .row {
+        display: flex;
+        flex-direction: row;
     }
 
-    .date-fields {
-      display: inline-block;
-      width: 20%;
-      border-top: 3px solid black;
-      margin: 0 13px;
-      padding: 3px 0 0 9px;
-      flex: 1;
+    .signature-fieldset {
+        width: 53%;
+        margin-right: 23px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .date-fieldset {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .border-bottom {
+        border-bottom: 3px solid black;
     }
 
     .footer {
@@ -594,21 +599,19 @@
     <table class="signature-table white-border">
       <tr>
         <td class="sign-label" colspan="6">
-          <b>X</b>
+          <b>X</b> <i data-sign-role="PrimaryApplicant" data-sign-field="fullName"></i>
           <br>
           <div class="sign-input underline">
             Borrower 1 - ${(primaryPerson.firstName)!"-"} ${(primaryPerson.lastName)!"-"}
           </div>
-          <i data-sign-role="PrimaryApplicant" data-sign-field="fullName"></i>
         </td>
         <#if coApplicant??>
           <td class="sign-label" colspan="6">
-            <b>X</b>
+            <b>X</b> <i data-sign-role="CoApplicant" data-sign-field="fullName"></i>
             <br>
             <div class="sign-input underline">
               Borrower 2 (if any) - ${(coAppPerson.firstName)!"-"} ${(coAppPerson.lastName)!"-"}
             </div>
-            <i data-sign-role="PrimaryApplicant" data-sign-field="fullName"></i>
           </td>
           <#else>
             <td class="sign-label" colspan="6">
@@ -642,23 +645,50 @@
         terms.</p>
     </div>
     <div>
-      <b>X</b><span data-sign-role="PrimaryApplicant"><i data-sign-role="PrimaryApplicant"
-          data-sign-field="fullName"></i></span><br>
-      <div class="sign-date">
-        <span class="signature-fields">
-          Borrower 1 - ${(primaryPerson.firstName)!"-"} ${(primaryPerson.lastName)!"-"}
-        </span>
-        <span class="date-fields" data-sign-field="dateSigned">Date Signed</span>
-      </div>
-      <#if coApplicant??>
-        <b>X</b><span data-sign-role="CoApplicant"><i data-sign-role="CoApplicant"
-            data-sign-field="fullName"></i></span><br>
-        <div class="sign-date">
-          <span class="signature-fields">
-            Borrower 2 (if any) - ${(coAppPerson.firstName)!"-"} ${(coAppPerson.lastName)!"-"}
-          </span>
-          <span class="date-fields">Date Signed</span>
+      <div class="row">
+        <#-- Signature field set -->
+        <div class="signature-fieldset">
+            <div class="border-bottom">
+                <b>X</b> <i data-sign-role="PrimaryApplicant" data-sign-field="fullName"></i>
+            </div>
+            <div>
+                Buyer #1 - ${(primaryPerson.firstName)!"-"}
+                ${(primaryPerson.lastName)!"-"}
+            </div>
         </div>
+
+        <#-- Date field set -->
+        <div class="date-fieldset">
+            <div class="border-bottom">
+                <span data-sign-role="PrimaryApplicant"
+                    data-sign-field="dateSigned"></span>
+            </div>
+            <div>Date Signed</div>
+        </div>
+      </div>
+
+      <#if coApplicant??>
+          <div class="row" style="padding: 20px 0;">
+              <#-- Signature field set -->
+              <div class="signature-fieldset">
+                  <div class="border-bottom">
+                      <b>X</b> <i data-sign-role="CoApplicant" data-sign-field="fullName"></i>
+                  </div>
+                  <div>
+                      Buyer #2 (if any) - ${(coAppPerson.firstName)!"-"}
+                      ${(coAppPerson.lastName)!"-"}
+                  </div>
+              </div>
+
+              <#-- Date field set -->
+              <div class="date-fieldset">
+                  <div class="border-bottom">
+                      <span data-sign-role="CoApplicant"
+                          data-sign-field="dateSigned"></span>
+                  </div>
+                  <div>Date Signed</div>
+              </div>
+          </div>
       </#if>
     </div>
 

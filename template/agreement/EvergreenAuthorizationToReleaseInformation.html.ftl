@@ -8,19 +8,25 @@
         .center {
             text-align: center;
         }
+
         .row {
             display: flex;
             flex-direction: row;
-            align-items: space-between;
         }
 
         .signature-fieldset {
             width: 53%;
             margin-right: 23px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
         }
 
         .date-fieldset {
             width: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
         }
 
         .border-bottom {
@@ -105,13 +111,10 @@
         </ol>
         <div style="padding: 40px 0px 40px 80px;">
             <div class="row">
-                <div><b>X</b></div>
                 <#-- Signature field set -->
                 <div class="signature-fieldset">
                     <div class="border-bottom">
-                        <span data-sign-role="PrimaryApplicant"><i
-                                data-sign-role="PrimaryApplicant"
-                                data-sign-field="fullName"></i></span>
+                        <b>X</b> <i data-sign-role="PrimaryApplicant" data-sign-field="fullName"></i>
                     </div>
                     <div>
                         Buyer #1 - ${(primaryPerson.firstName)!"-"}
@@ -131,12 +134,10 @@
 
             <#if coApplicant??>
                 <div class="row" style="padding-top: 40px;">
-                    <div><b>X</b></div>
                     <#-- Signature field set -->
                     <div class="signature-fieldset">
                         <div class="border-bottom">
-                            <span data-sign-role="CoApplicant"><i data-sign-role="CoApplicant"
-                                    data-sign-field="fullName"></i></span>
+                            <b>X</b> <i data-sign-role="CoApplicant" data-sign-field="fullName"></i>
                         </div>
                         <div>
                             Buyer #2 (if any) - ${(coAppPerson.firstName)!"-"}
