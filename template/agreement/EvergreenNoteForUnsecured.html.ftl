@@ -324,14 +324,32 @@
               <td class="currency"><b>${orderItem.unitAmount?string.currency!"-"}</b></td>
             </tr>
             <tr>
+              <td>Total Financed Prepaid Finance Charges:</b></td>
+              <td style="border-bottom: 1px solid black;">
+                <#if loanFee??> ${loanFee?number?string.currency!"-"} <#else> - </#if>
+              </td>
+            </tr>
+            <tr>
               <td><b>Note Principal:</b></td>
               <td class="currency">
                 <b>${(orderItem.unitAmount+(downPayment.downPaymentAmount)!0)?string.currency!"-"}</b>
               </td>
             </tr>
             <tr>
-              <td><b>Prepaid Finance Charges:</b></td>
-              <td class="currency"><b><#if loanFee??>${loanFee?number?string.currency!"-"}<#else>-</#if></b></td>
+              <td>
+                <b>Prepaid Finance Charges:</b><br/>
+                <#if loanFee??>
+                    <span style="margin-left: 10px;display:inline-block;">
+                      <span style="margin-right: 15px;display:inline-block;">Financed:</span> 
+                      ${loanFee?number?string.currency!"-"}
+                    </span>
+                    <br/>
+                    <span style="margin-left: 20px;display:inline-block;">${loanFee?number?string.currency!"-"} Loan processing fee</span>
+                </#if>
+              </td>
+              <td class="currency">
+                <#if loanFee??><b>${loanFee?number?string.currency!"-"}</b><#else>-</#if>
+              </td>
             </tr>
             <tr>
               <td><b>Amount Financed:</b></td>
