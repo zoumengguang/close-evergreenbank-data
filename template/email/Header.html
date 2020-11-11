@@ -1,0 +1,23 @@
+[PLACEHOLDERS WITH VARIABLES]  ==============================
+
+Date: 8/12/2020 1:42pm => ${.now?date?string.long} [HOW TO MAKE CONVERT TO CENTRAL TIME? GMT - 5?]
+Loan application #: 162365 => {(orderId)!"-"}
+Status: Requested => ${(statusItem.description)!"-"}
+Application submitted on: 8/11/2020 => ${(orderHeader.entryDate)!"-"}
+
+Contracting Company: [Dealer Name] => ${(referrer.storeName)!"-"} [DEALER VS AGENT ??]
+Representative: [Representative Name]  => ${(contacts[0].person.firstName)!"-"} ${(contacts[0].person.lastName)!"-"}
+Primary Applicant: [Applicant Name] => ${primaryApplicant.partyName!"-"}
+Co-Applicant: [Applicant Name] => <#list coApplicants as coApplicant> ${(coApplicant.person.firstName)!"-"} ${(coApplicant.person.lastName)!"-"}</#list>
+
+[PLACEHOLDERS REPLACED BY VARIABLES] ==============================
+
+${.now?date?string.long}
+Loan application #: {(orderId)!"-"}
+Status: ${(statusItem.description)!"-"}
+Application submitted on: ${(orderHeader.entryDate)!"-"}
+
+Contracting Company: ${(referrer.storeName)!"-"}
+Representative: ${(contacts[0].person.firstName)!"-"} ${(contacts[0].person.lastName)!"-"}
+Primary Applicant: ${primaryApplicant.partyName!"-"}
+Co-Applicant: <#list coApplicants as coApplicant> ${(coApplicant.person.firstName)!"-"} ${(coApplicant.person.lastName)!"-"}</#list>

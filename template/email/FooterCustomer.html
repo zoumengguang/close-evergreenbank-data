@@ -1,0 +1,22 @@
+<p>Thank you for your business.</p>
+
+[Dealer Name]
+[Address] => NEED EXAMPLE OF STREET ADDRESS
+[Phone]
+[Email]
+
+<p>
+	${(referrer.storeName)!"-"}
+	<br />
+	<#if (vendorContactInfo?? && (vendorContactInfo.postalAddress)??)>
+		<#assign agentPostalAddress = vendorContactInfo.postalAddress>
+		<#assign addressLine1 = '${(agentPostalAddress.address1)!""} ${(agentPostalAddress.address2 + "<br/>")!""}'>
+		<#assign addressLine2 = '${(agentPostalAddress.city + ",")!""} ${(agentPostalAddress.stateProvinceGeo.geoCodeAlpha2)!""} ${(agentPostalAddress.postalCode)!""}'>
+	</#if>
+	<br />
+	<#if (vendorContactInfo?? && (vendorContactInfo.telecomNumber)??)>
+		${vendorContactInfo.telecomNumber.areaCode}-${vendorContactInfo.telecomNumber.contactNumber}
+	</#if>
+	<br />
+	<#if (vendorContactInfo.emailAddress)??>${(vendorContactInfo.emailAddress)!"-"}</#if>
+</p>
