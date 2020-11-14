@@ -87,7 +87,7 @@
                   <table class="noBorder">
                     <tr>
                       <td><b>${applicantCreditScore!"-"}</b></td>
-                      <td>Source: <b>Experian</b></td>
+                      <td style="padding-right: 20px;">Source: <b>Experian</b></td>
                       <td>Date: <b>${dateCreditPulled!"-"}</b></td>
                     </tr>
                   </table>
