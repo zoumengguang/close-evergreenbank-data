@@ -116,7 +116,7 @@
               </tr>
               <tr>
                 <td>How your score compares to the scores of other consumers</td>
-                <td>Your credit score ranks higher than ${scorePercentile!"-"} percent of U.S. Consumers.</td>
+                <td>Your credit score ranks higher than <b>${scorePercentile!"-"}</b> percent of U.S. Consumers.</td>
               </tr>
             </tbody>
           </table>
