@@ -670,7 +670,7 @@
                 <b>X</b> <i data-sign-role="PrimaryApplicant" data-sign-field="fullName"></i>
             </div>
             <div>
-                Buyer #1 - ${(primaryPerson.firstName)!"-"}
+                Borrower 1 - ${(primaryPerson.firstName)!"-"}
                 ${(primaryPerson.lastName)!"-"}
             </div>
         </div>
@@ -693,7 +693,7 @@
                       <b>X</b> <i data-sign-role="CoApplicant" data-sign-field="fullName"></i>
                   </div>
                   <div>
-                      Buyer #2 (if any) - ${(coAppPerson.firstName)!"-"}
+                      Borrower 2 (if any) - ${(coAppPerson.firstName)!"-"}
                       ${(coAppPerson.lastName)!"-"}
                   </div>
               </div>
