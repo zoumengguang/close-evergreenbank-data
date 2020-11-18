@@ -3,6 +3,24 @@
 
 <div>
     <style>
+        .contentBody {
+            margin: auto;
+            width: 600px;
+            padding: 24px;
+            font-size: 16px;
+            line-height: 24px;
+        }
+        .headerImage {
+            max-width: 300px;
+            max-height: 75px;
+            width: auto;
+            height: auto;
+        }
+        .orderData {
+            display: flex;
+            justify-content: space-between;
+        }
+        
         .box {
             border: 1px solid black;
         }
@@ -66,14 +84,23 @@
         .tg-bky {
             padding-left: 30px;
         }
+         @media only screen and (max-width: 1024px) {
+            .contentBody {
+                width: 85%;
+            }
+        }
     </style>
  
- <div>  
+ <div class="contentBody">  
     <div>
+    <#if bankLogo??>
+        <img src="${bankLogo}" alt="Bank Logo" class="headerImage" />
+    </#if>
+    </div>
+    <div class="orderData">
         <div>
             <p><b>Contractor: ${storeMerchantName!"-"}</b></p>
         </div>
-        <br/>
         <div>
             <p>Date Denied: ${adverseActionDate}</p>
             <p>Application #: ${orderId!"-"}</p>
@@ -117,7 +144,7 @@
         </#list>
         <p class="parts-field"><b>Part II - Disclosure of Use of Information Obtained From an
                 Outside Source</b></p>
-        <p> Our credit decision
+        <p> <#if applicantCreditScore??><b>X</b><#else>__</#if> Our credit decision
             was based in whole or in part on information obtained in a report from the consumer
             reporting agency listed below. You have a right under the Fair Credit Reporting Act to
             know the information contained in your credit file at the consumer reporting agency. The
@@ -161,14 +188,14 @@
             </#list>
         </div>
         <br>
-        <#if showBasedDecision>
-            <p> Our credit decision
-                was based in whole or in part on information obtained from an affiliate or from an
-                outside source other than a consumer reporting agency. Under the Fair Credit Reporting
-                Act, you have the right to make a written request, no later than 60 days after you
-                receive this notice, for disclosure of the nature of this information.</p>
-            <br>
-        </#if>
+        
+        <p><#if showBasedDecision><b>X</b><#else>__</#if> Our credit decision
+            was based in whole or in part on information obtained from an affiliate or from an
+            outside source other than a consumer reporting agency. Under the Fair Credit Reporting
+            Act, you have the right to make a written request, no later than 60 days after you
+            receive this notice, for disclosure of the nature of this information.</p>
+        <br>
+        
         <p><i>If you have any questions regarding this notice, you should contact:</i></p>
         <p>Creditor's name: Evergreen Bank Group</p>
         <p>Creditor's address: 1515 W. 22ND Street, Suite 100W, Oak Brook, IL 60523</p>
